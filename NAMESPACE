@@ -1,0 +1,4 @@
+exportPattern("^[[:alpha:]]+")
+importFrom(caret, train, getModelInfo, modelLookup)
+importFrom(parallel, parLapply, makeCluster, clusterExport, stopCluster)
+importFrom(stats, model.matrix, predict)

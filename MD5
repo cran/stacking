@@ -1,0 +1,13 @@
+8e030226d9902ff3ca38abccd89457f2 *DESCRIPTION
+94b1ea8f5cc35b52424c501bf482b8ea *LICENSE
+a6cbbc8797d9515664d7cd351fab9f6e *NAMESPACE
+a955fc886f0a6b59137b9703d12fdd24 *R/stacking_predict.R
+ff191c88f1d19e8154234d98f6a90083 *R/stacking_train.R
+1e316dda22384496912086767e8ebcd0 *R/train_basemodel.R
+042c3fead3091abc3198d100227381d3 *R/train_basemodel_core.R
+0bf999adbdf3407cb06e512edf3825a1 *R/train_metamodel.R
+dd11e7ee2285a7973354f386b1d5351f *man/stacking_predict.Rd
+df0ec834f02214175bd08e1081dec5c5 *man/stacking_train.Rd
+10316a013d6fd5fd0f53d0fb65819c00 *man/train_basemodel.Rd
+9094fd6a70be09aa0252a616aa7ebd5b *man/train_basemodel_core.Rd
+ccdf571415262829e4d325168ec2dd39 *man/train_metamodel.Rd
