@@ -49,27 +49,31 @@ Method <- list(glmnet = data.frame(alpha = c(0.5, 0.8), lambda = c(0.1, 1)),
 ##3. glmnet with alpha = 0.8 and lambda = 0.1
 ##4. glmnet with alpha = 0.8 and lambda = 1
 ##5. pls with ncomp = 5
-\donttest{
+
+#The followings are the training and prediction processes
+#If glmnet and pls are not installed, please install them in advance.
+#Please remove #s before execution
+
 #Training
-stacking_train_result <- stacking_train(X = X1,
-                                        Y = Y1,
-                                        Nfold = 5,
-                                        Method = Method,
-                                        Metamodel = "lm",
-                                        core = 2)
+#stacking_train_result <- stacking_train(X = X1,
+#                                        Y = Y1,
+#                                        Nfold = 5,
+#                                        Method = Method,
+#                                        Metamodel = "lm",
+#                                        core = 2)
 
 #Prediction
-result <- stacking_predict(newX = X2, stacking_train_result)
-plot(Y2, result)
+#result <- stacking_predict(newX = X2, stacking_train_result)
+#plot(Y2, result)
 
 #Training using train_basemodel and train_metamodel
-base <- train_basemodel(X = X1, Y = Y1, Nfold = 5, Method = Method, core = 3)
-meta <- train_metamodel(base, which_to_use = 1:5, Metamodel = "lm")
-stacking_train_result <- list(base = base, meta = meta)
+#base <- train_basemodel(X = X1, Y = Y1, Nfold = 5, Method = Method, core = 3)
+#meta <- train_metamodel(base, which_to_use = 1:5, Metamodel = "lm")
+#stacking_train_result <- list(base = base, meta = meta)
 #=>this list should have elements named as base and meta
 
 #Prediction
-result <- stacking_predict(newX = X2, stacking_train_result)
-plot(Y2, result)
-}
+#result <- stacking_predict(newX = X2, stacking_train_result)
+#plot(Y2, result)
+
 }

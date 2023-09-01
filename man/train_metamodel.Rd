@@ -5,7 +5,7 @@
 Training a meta model of stacking
 }
 \usage{
-train_metamodel(basemodel_train_result, which_to_use, Metamodel, TrainEachFold)
+train_metamodel(basemodel_train_result, which_to_use, Metamodel, TrainEachFold = FALSE)
 }
 \arguments{
   \item{basemodel_train_result}{The list output by train_basemodel}
@@ -62,31 +62,35 @@ Method <- list(glmnet = data.frame(alpha = c(0, 0.5, 1), lambda = rep(NA, 3)),
 ##2. glmnet with alpha = 0.5 and lambda tuned
 ##3. glmnet with alpha = 1 and lambda tuned
 ##4. pls with ncomp = 5
-\donttest{
+
+#The followings are the training and prediction processes
+#If glmnet and pls are not installed, please install them in advance.
+#Please remove #s before execution
+
 #Training of base learners
-base <- train_basemodel(X = X1, Y = Y1, Nfold = 5, Method = Method, core = 2)
+#base <- train_basemodel(X = X1, Y = Y1, Nfold = 5, Method = Method, core = 2)
 
 #Training of a meta learner
-meta <- train_metamodel(base, which_to_use = 1:4, Metamodel = "lm")
+#meta <- train_metamodel(base, which_to_use = 1:4, Metamodel = "lm")
 
 #Combine both results
-stacking_train_result <- list(base = base, meta = meta)
+#stacking_train_result <- list(base = base, meta = meta)
 #=>this list should have elements named as base and meta
 
 #Prediction
-result <- stacking_predict(newX = X2, stacking_train_result)
-plot(Y2, result)
+#result <- stacking_predict(newX = X2, stacking_train_result)
+#plot(Y2, result)
 
 #Training using stacking_train
-stacking_train_result <- stacking_train(X = X1,
-                                        Y = Y1,
-                                        Nfold = 5,
-                                        Method = Method,
-                                        Metamodel = "lm",
-                                        core = 2)
+#stacking_train_result <- stacking_train(X = X1,
+#                                        Y = Y1,
+#                                        Nfold = 5,
+#                                        Method = Method,
+#                                        Metamodel = "lm",
+#                                        core = 2)
 
 #Prediction
-result <- stacking_predict(newX = X2, stacking_train_result)
-plot(Y2, result)
-}
+#result <- stacking_predict(newX = X2, stacking_train_result)
+#plot(Y2, result)
+
 }
